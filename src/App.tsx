@@ -2,8 +2,8 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Detail from "components/Detail";
-import Home from "components/Home";
+import EventInfo from "pages/EventInfo";
+import Home from "pages/Home";
 
 function App() {
 	const queryClient = new QueryClient({
@@ -20,7 +20,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/:id" element={<Detail />} />
+					<Route path="/:id" element={<EventInfo />} />
 				</Routes>
 			</BrowserRouter>
 		</QueryClientProvider>
