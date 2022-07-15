@@ -1,11 +1,11 @@
-import Detail from "components/Detail";
-import Home from "components/Home";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import Detail from "components/Detail";
+import Home from "components/Home";
+
 function App() {
-	const uri = process.env.REACT_APP_REQUEST_URI;
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {

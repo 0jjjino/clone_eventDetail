@@ -27,7 +27,6 @@ function Home() {
 		</div>
 	);
 }
-
 export default Home;
 
 const Form = styled.form`
