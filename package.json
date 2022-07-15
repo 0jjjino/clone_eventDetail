@@ -54,5 +54,6 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"prettier": "^2.7.1",
 		"react-dotenv": "^0.1.3"
-	}
+	},
+	"proxy": "https://product-api.yeoshin.co.kr"
 }
