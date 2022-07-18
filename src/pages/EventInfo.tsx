@@ -1,25 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import styled from "@emotion/styled";
+import { AxiosResponse } from "axios";
 
 import getEventInfo from "api/getEventInfo";
-import { AxiosResponse } from "axios";
+import BottomContainer from "components/BottomContainer";
 
 function EventInfo() {
 	const { id } = useParams();
-	const [info, setInfo] = useState({});
-	const { isLoading, isSuccess, data }: AxiosResponse["data"] = useQuery(
+	const { isSuccess }: AxiosResponse["data"] = useQuery(
 		"eventDetail",
 		getEventInfo(id)
 	);
 
-	useEffect(() => {
-		if (isSuccess) {
-			setInfo(data.data.results);
-		}
-	}, [isSuccess]);
-
-	return <div></div>;
+	return (
+		<>
+			{isSuccess ? (
+				<>
+					<Wrapper></Wrapper>
+					<BottomContainer />
+				</>
+			) : (
+				<div>Loading...</div>
+			)}
+		</>
+	);
 }
 
 export default EventInfo;
+
+const Wrapper = styled.div`
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 80px;
+`;
