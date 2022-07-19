@@ -6,6 +6,8 @@ import filledHeart from "../image/filledHeart.svg";
 import gift from "../image/gift.svg";
 import { AxiosResponse } from "axios";
 import { useQuery } from "react-query";
+import Icon from "./Icon";
+import FixedContainer from "./FixedContainer";
 
 function BottomContainer() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
@@ -27,13 +29,13 @@ function BottomContainer() {
 	};
 
 	return (
-		<OuterContainer>
+		<FixedContainer height={80}>
 			<InnerContainer>
 				<IconContainer>
 					{isHeartClick ? (
-						<Icon src={filledHeart} onClick={handleHeartClick} />
+						<Icon src={filledHeart} onIconClick={handleHeartClick} />
 					) : (
-						<Icon src={heart} onClick={handleHeartClick} />
+						<Icon src={heart} onIconClick={handleHeartClick} />
 					)}
 					<Title className={isHeartClick ? "like" : "disLike"}>
 						{wishCount}
@@ -47,22 +49,14 @@ function BottomContainer() {
 				<Padding />
 				<Button>구매하기</Button>
 			</InnerContainer>
-		</OuterContainer>
+		</FixedContainer>
 	);
 }
 
 export default BottomContainer;
 
-const OuterContainer = styled.div`
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 80px;
-`;
-
 const InnerContainer = styled.div`
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	height: 80px;
@@ -77,11 +71,6 @@ const IconContainer = styled.div`
 	min-width: 50px;
 	max-width: 50px;
 	height: 48px;
-`;
-
-const Icon = styled.img`
-	width: 24px;
-	height: 24px;
 `;
 
 const Title = styled.div`
