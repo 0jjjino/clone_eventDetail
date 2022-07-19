@@ -5,7 +5,8 @@ import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 
 import getEventInfo from "api/getEventInfo";
-import BottomContainer from "components/BottomContainer";
+import Footer from "components/Footer";
+import Header from "components/Header";
 
 function EventInfo() {
 	const { id } = useParams();
@@ -18,8 +19,9 @@ function EventInfo() {
 		<>
 			{isSuccess ? (
 				<>
+					<Header />
 					<Wrapper></Wrapper>
-					<BottomContainer />
+					<Footer />
 				</>
 			) : (
 				<div>Loading...</div>
@@ -33,5 +35,5 @@ export default EventInfo;
 const Wrapper = styled.div`
 	height: auto;
 	min-height: 100%;
-	padding-bottom: 80px;
+	margin: 56px 0 80px 0;
 `;

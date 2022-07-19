@@ -9,7 +9,7 @@ import { useQuery } from "react-query";
 import Icon from "./Icon";
 import FixedContainer from "./FixedContainer";
 
-function BottomContainer() {
+function Footer() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
 	const [isHeartClick, setIsHeartClick] = useState(false);
 	const [wishCount, setWishCount] = useState(
@@ -53,7 +53,7 @@ function BottomContainer() {
 	);
 }
 
-export default BottomContainer;
+export default Footer;
 
 const InnerContainer = styled.div`
 	display: flex;
