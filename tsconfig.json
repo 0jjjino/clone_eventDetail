@@ -2,6 +2,7 @@
 	"include": ["src", "index.d.ts"],
 	"exclude": ["node_modules", "index.d.ts", "node_modules/quicklink/dist/react/hoc.js"],
 	"compilerOptions": {
+		"types": ["@emotion/react/types/css-prop"],
 		"typeRoots": ["index.d.ts"],
 		"baseUrl": "src",
 		"allowJs": true,
@@ -19,8 +20,6 @@
 		"experimentalDecorators": true,
 		"jsx": "react-jsx",
 		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"types": ["@emotion/react/types/css-prop"],
-		"jsxImportSource": "@emotion/react"
+		"lib": ["dom", "dom.iterable", "esnext"]
 	}
 }
