@@ -4,12 +4,11 @@ import React from "react";
 import { useState } from "react";
 import { useQuery } from "react-query";
 
-import star from "../image/star.svg";
-import greyStar from "../image/greyStar.svg";
 import share from "../image/share.svg";
 import phone from "../image/phone.svg";
 import FreeSpace from "./FreeSpace";
 import Icon from "./Icon";
+import StarCount from "./StarCount";
 
 function Thumbnail() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
@@ -29,10 +28,6 @@ function Thumbnail() {
 	const [average, setAverage] = useState(
 		((rateScore / reviewCount) * 2).toFixed(1)
 	);
-	const [yellowStar, setyellowStar] = useState(
-		Math.round(Math.round(Number(average)) / 2)
-	);
-	const [emptyStar, setEmptyStar] = useState(5 - yellowStar);
 
 	return (
 		<>
@@ -53,29 +48,7 @@ function Thumbnail() {
 				<Comment>{comment}</Comment>
 				<FreeSpace height={4} />
 				<ScoreContainer>
-					<Container>
-						{yellowStar > 0 ? (
-							[...Array(yellowStar)].map((value, index) => (
-								<Icon width={16} height={16} src={star} key={index + star} />
-							))
-						) : (
-							<></>
-						)}
-						{emptyStar > 0 ? (
-							[...Array(greyStar)].map((value, index) => (
-								<Icon
-									width={16}
-									height={16}
-									src={greyStar}
-									key={index + greyStar}
-								/>
-							))
-						) : (
-							<></>
-						)}
-						<FreeSpace width={5} />
-						{!average ? <Score>{average}</Score> : <></>}
-					</Container>
+					<StarCount average={average} />
 					{mobileReservation === "Y" ? (
 						<Reservation>모바일예약</Reservation>
 					) : (
@@ -192,13 +165,6 @@ const ScoreContainer = styled.div`
 const Container = styled.div`
 	display: flex;
 	align-items: center;
-`;
-
-const Score = styled.div`
-	font-size: 11px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-	line-height: 16px;
 `;
 
 const Reservation = styled.div`

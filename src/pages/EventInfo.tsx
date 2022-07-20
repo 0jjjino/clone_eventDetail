@@ -8,6 +8,7 @@ import getEventInfo from "api/getEventInfo";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import Thumbnail from "components/Thumbnail";
+import Review from "components/Review";
 
 function EventInfo() {
 	const { id } = useParams();
@@ -23,6 +24,9 @@ function EventInfo() {
 					<Header />
 					<Wrapper>
 						<Thumbnail />
+						<Space />
+						<Review />
+						<Space />
 					</Wrapper>
 					<Footer />
 				</>
@@ -38,4 +42,12 @@ export default EventInfo;
 const Wrapper = styled.div`
 	box-sizing: border-box;
 	padding: 56px 0 80px 0;
+`;
+
+const Space = styled.div`
+	width: 100%;
+	background: #f7f7f7;
+	border-top: 1px solid #e6e6e6;
+	height: 12px;
+	box-sizing: border-box;
 `;
