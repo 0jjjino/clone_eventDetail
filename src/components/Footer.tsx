@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import { AxiosResponse } from "axios";
+import React, { useCallback, useState } from "react";
+import { useQuery } from "react-query";
 
 import heart from "../image/heart.svg";
 import filledHeart from "../image/filledHeart.svg";
 import gift from "../image/gift.svg";
-import { AxiosResponse } from "axios";
-import { useQuery } from "react-query";
 import Icon from "./Icon";
 import FixedContainer from "./FixedContainer";
+import FreeSpace from "./FreeSpace";
 
 function Footer() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
@@ -16,7 +17,7 @@ function Footer() {
 		data.data.results.product.wishCount
 	);
 
-	const handleHeartClick = () => {
+	const handleHeartClick = useCallback(() => {
 		setIsHeartClick(!isHeartClick);
 
 		if (!isHeartClick) {
@@ -26,27 +27,37 @@ function Footer() {
 		if (isHeartClick) {
 			setWishCount(wishCount - 1);
 		}
-	};
+	}, [isHeartClick]);
 
 	return (
 		<FixedContainer height={80}>
 			<InnerContainer>
 				<IconContainer>
 					{isHeartClick ? (
-						<Icon src={filledHeart} onIconClick={handleHeartClick} />
+						<Icon
+							width={24}
+							height={24}
+							src={filledHeart}
+							onIconClick={handleHeartClick}
+						/>
 					) : (
-						<Icon src={heart} onIconClick={handleHeartClick} />
+						<Icon
+							width={24}
+							height={24}
+							src={heart}
+							onIconClick={handleHeartClick}
+						/>
 					)}
 					<Title className={isHeartClick ? "like" : "disLike"}>
 						{wishCount}
 					</Title>
 				</IconContainer>
-				<Padding />
+				<FreeSpace width={16} height={80} />
 				<IconContainer>
-					<Icon src={gift} />
+					<Icon width={24} height={24} src={gift} />
 					<Title className="gift">선물</Title>
 				</IconContainer>
-				<Padding />
+				<FreeSpace width={16} height={80} />
 				<Button>구매하기</Button>
 			</InnerContainer>
 		</FixedContainer>
@@ -59,8 +70,9 @@ const InnerContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	box-sizing: border-box;
 	height: 80px;
-	padding: 0 16px;
+	padding: 16px;
 `;
 
 const IconContainer = styled.div`
@@ -95,12 +107,6 @@ const Title = styled.div`
 	&.dislike {
 		font-family: "Open Sans", sans-serif;
 	}
-`;
-
-const Padding = styled.div`
-	min-width: 16px;
-	max-width: 16px;
-	height: 48px;
 `;
 
 const Button = styled.button`

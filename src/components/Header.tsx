@@ -18,10 +18,15 @@ function Header() {
 		<FixedContainer height={56}>
 			<InnerContainer>
 				<Container>
-					<Icon src={backIcon} onIconClick={handleBackClick} />
+					<Icon
+						width={24}
+						height={24}
+						src={backIcon}
+						onIconClick={handleBackClick}
+					/>
 					<Title>이벤트</Title>
 				</Container>
-				<Icon src={basket} />
+				<Icon width={24} height={24} src={basket} />
 			</InnerContainer>
 		</FixedContainer>
 	);
@@ -33,6 +38,7 @@ const InnerContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	box-sizing: border-box;
 	padding: 14px 16px 14px 24px;
 `;
 

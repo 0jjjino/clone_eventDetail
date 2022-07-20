@@ -18,8 +18,11 @@ export default FixedContainer;
 
 const Container = styled.div<propsType>`
 	position: fixed;
+	box-sizing: border-box;
 	width: 100%;
+	height: ${props => props.height}px;
 	background-color: #ffffff;
+	z-index: 100;
 
 	&.bottom {
 		bottom: 0;
