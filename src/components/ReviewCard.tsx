@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
-import React, { useState } from "react";
+import React from "react";
 
 import FreeSpace from "./FreeSpace";
 import StarCount from "./StarCount";
@@ -11,7 +11,8 @@ interface propsType {
 
 function ReviewCard({ data }: propsType) {
 	const {
-		ttName: title,
+		ttName: firstName,
+		name: secondName,
 		ttRegidate: date,
 		ttImgList: imgList,
 		ttContent: comment,
@@ -22,7 +23,7 @@ function ReviewCard({ data }: propsType) {
 
 	return (
 		<Card>
-			<Title>{title}</Title>
+			<Title>{firstName || secondName}</Title>
 			<Container>
 				<StarCount average={(starPoint / 10).toFixed(1)} />
 				<FreeSpace width={16} />
