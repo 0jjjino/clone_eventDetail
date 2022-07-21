@@ -4,10 +4,10 @@ import React from "react";
 import { useQuery } from "react-query";
 
 import nextButton from "../image/next_button.png";
-import rightArrow from "../image/rightArrow.svg";
 import Icon from "./Icon";
 import ReviewCard from "./ReviewCard";
 import FreeSpace from "./FreeSpace";
+import TitleTab from "./TitleTab";
 
 function Review() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
@@ -15,22 +15,17 @@ function Review() {
 
 	return (
 		<>
-			<ReviewCount>
-				<Title>시술후기 {totalCount}</Title>
-				<Icon width={13} height={21.27} src={rightArrow} />
-			</ReviewCount>
+			<TitleTab title="시술후기" count={totalCount} />
 			{reviews.length ? (
 				<ReviewContainer>
 					<ReviewInnerContainer>
 						{reviews.map((data: AxiosResponse["data"]) => (
-							<>
-								<ReviewCard key={data.ttNo} data={data} />
-							</>
+							<ReviewCard key={data.ttNo} data={data} />
 						))}
 						<NextContainer>
 							<Icon width={48} height={48} src={nextButton} />
 							<FreeSpace height={4} />
-							<Title className="more">더보기</Title>
+							<More>더보기</More>
 						</NextContainer>
 					</ReviewInnerContainer>
 				</ReviewContainer>
@@ -43,27 +38,11 @@ function Review() {
 
 export default Review;
 
-const ReviewCount = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	box-sizing: border-box;
-	width: 100%;
-	height: 56px;
-	padding: 0 16px;
-`;
-
-const Title = styled.div`
-	font-size: 17px;
+const More = styled.div`
+	font-size: 11px;
 	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 500;
-	line-height: 25px;
-
-	&.more {
-		font-size: 11px;
-		font-weight: 400;
-		line-height: 16px;
-	}
+	font-weight: 400;
+	line-height: 16px;
 `;
 
 const ReviewContainer = styled.div`
