@@ -9,6 +9,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import Thumbnail from "components/Thumbnail";
 import Review from "components/Review";
+import Information from "components/Information";
 
 function EventInfo() {
 	const { id } = useParams();
@@ -26,6 +27,8 @@ function EventInfo() {
 						<Thumbnail />
 						<Space />
 						<Review />
+						<Space />
+						<Information />
 						<Space />
 					</Wrapper>
 					<Footer />
