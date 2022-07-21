@@ -10,13 +10,16 @@ import Header from "components/Header";
 import Thumbnail from "components/Thumbnail";
 import Review from "components/Review";
 import Information from "components/Information";
+import Question from "components/Question";
 
 function EventInfo() {
 	const { id } = useParams();
-	const { isSuccess }: AxiosResponse["data"] = useQuery(
+	const { isSuccess, data }: AxiosResponse["data"] = useQuery(
 		"eventDetail",
 		getEventInfo(id)
 	);
+
+	if (isSuccess) console.log(data.data.results);
 
 	return (
 		<>
@@ -29,6 +32,8 @@ function EventInfo() {
 						<Review />
 						<Space />
 						<Information />
+						<Space />
+						<Question />
 						<Space />
 					</Wrapper>
 					<Footer />
