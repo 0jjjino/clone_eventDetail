@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useQuery } from "react-query";
 
 import open from "../image/open.svg";
@@ -9,6 +9,7 @@ import close from "../image/close.svg";
 import FreeSpace from "./FreeSpace";
 import Icon from "./Icon";
 import TitleTab from "./TitleTab";
+import BigButton from "./BigButton";
 
 function Information() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
@@ -24,8 +25,11 @@ function Information() {
 		customerTel: tel,
 	} = data.data.results.product;
 
-	const [splitedHour, setSplitedHour] = useState(hour.split("\r\n"));
 	const [isShow, setIsShow] = useState(false);
+
+	const handleButtonClick = useCallback(() => {
+		setIsShow(!isShow);
+	}, [isShow]);
 
 	return (
 		<Container>
@@ -45,7 +49,7 @@ function Information() {
 					<div>예약 : {tel}</div>
 					<FreeSpace height={20} />
 					<div>[ 진료시간 ]</div>
-					{splitedHour.map((value: string) => (
+					{hour.split("\r\n").map((value: string) => (
 						<div key={value}>{value}</div>
 					))}
 					<FreeSpace height={20} />
@@ -69,11 +73,12 @@ function Information() {
 				<div dangerouslySetInnerHTML={{ __html: eventEnd }} />
 				<div dangerouslySetInnerHTML={{ __html: eventCommon[0] }} />
 				<MoreContainer className={isShow ? "open" : "close"}>
-					<Button onClick={() => setIsShow(!isShow)}>
-						<Ment>{isShow ? "시술정보 접기" : "시술정보 더보기"}</Ment>
-						<FreeSpace width={5} />
+					<BigButton
+						onButtonClick={handleButtonClick}
+						ment={isShow ? "시술정보 접기" : "시술정보 더보기"}
+					>
 						<Icon width={20} height={20} src={isShow ? close : open} />
-					</Button>
+					</BigButton>
 				</MoreContainer>
 			</Detail>
 		</Container>
@@ -148,25 +153,25 @@ const MoreContainer = styled.div`
 	}
 `;
 
-const Button = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	z-index: 10;
-	bottom: 41px;
-	width: calc(100% - 32px);
-	height: 48px;
-	border: 1px solid #e6e6e6;
-	border-radius: 4px;
-	background-color: white;
-`;
+// const Button = styled.div`
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	position: absolute;
+// 	z-index: 10;
+// 	bottom: 41px;
+// 	width: calc(100% - 32px);
+// 	height: 48px;
+// 	border: 1px solid #e6e6e6;
+// 	border-radius: 4px;
+// 	background-color: white;
+// `;
 
-const Ment = styled.div`
-	display: flex;
-	height: 22px;
-	font-size: 15px;
-	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 500;
-	line-height: 22px;
-`;
+// const Ment = styled.div`
+// 	display: flex;
+// 	height: 22px;
+// 	font-size: 15px;
+// 	font-family: "Noto Sans KR", sans-serif;
+// 	font-weight: 500;
+// 	line-height: 22px;
+// `;
