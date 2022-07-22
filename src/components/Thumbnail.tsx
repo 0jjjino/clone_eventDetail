@@ -58,7 +58,7 @@ function Thumbnail() {
 				<FreeSpace height={8.5} />
 				<PriceContainer>
 					<Container>
-						<Letter className="price">{price}</Letter>
+						<Letter className="price">{price.toLocaleString("ko-KR")}</Letter>
 						<Letter className="won">원</Letter>
 						<FreeSpace width={4} />
 						<Letter className="vat">(VAT 포함)</Letter>

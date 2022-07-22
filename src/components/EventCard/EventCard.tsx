@@ -31,7 +31,7 @@ function EventCard({ data }: propTypes) {
 			<FreeSpace height={4} />
 			<Letter className="name">{name}</Letter>
 			<PriceContainer>
-				<Letter className="price">{price}</Letter>
+				<Letter className="price">{price.toLocaleString("ko-KR")}</Letter>
 				<FreeSpace width={4} />
 				<Letter className="won">원</Letter>
 			</PriceContainer>
