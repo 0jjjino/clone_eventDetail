@@ -27,7 +27,9 @@ function EventInfo() {
 
 	return (
 		<>
-			{!isLoading && !isRefetching ? (
+			{isLoading || isRefetching ? (
+				<Loading>Loading...</Loading>
+			) : (
 				<>
 					<Header />
 					<Wrapper>
@@ -44,8 +46,6 @@ function EventInfo() {
 					</Wrapper>
 					<Footer />
 				</>
-			) : (
-				<Loading>Loading...</Loading>
 			)}
 		</>
 	);
