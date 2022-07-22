@@ -3,11 +3,11 @@ import { AxiosResponse } from "axios";
 import React from "react";
 import { useQuery } from "react-query";
 
-import nextButton from "../image/next_button.png";
-import Icon from "./Icon";
+import Icon from "../Common/Icon";
+import FreeSpace from "../Common/FreeSpace";
+import TitleTab from "../Common/TitleTab";
+import nextButton from "../../image/next_button.png";
 import ReviewCard from "./ReviewCard";
-import FreeSpace from "./FreeSpace";
-import TitleTab from "./TitleTab";
 
 function Review() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");

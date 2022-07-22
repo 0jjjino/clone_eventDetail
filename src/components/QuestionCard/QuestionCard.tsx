@@ -2,10 +2,10 @@ import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
 
-import qna from "../image/qna.svg";
-import check from "../image/check.svg";
-import Icon from "./Icon";
-import FreeSpace from "./FreeSpace";
+import qna from "../../image/qna.svg";
+import check from "../../image/check.svg";
+import Icon from "../Common/Icon";
+import FreeSpace from "../Common/FreeSpace";
 
 interface propTypes {
 	data: AxiosResponse["data"];

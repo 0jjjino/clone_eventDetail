@@ -6,9 +6,9 @@ import { useQuery } from "react-query";
 
 import share from "../image/share.svg";
 import phone from "../image/phone.svg";
-import FreeSpace from "./FreeSpace";
-import Icon from "./Icon";
-import StarCount from "./StarCount";
+import FreeSpace from "./Common/FreeSpace";
+import StarCount from "./Common/StarCount";
+import Icon from "./Common/Icon";
 
 function Thumbnail() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");

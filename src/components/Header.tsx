@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import backIcon from "../image/backIcon.svg";
 import basket from "../image/basket.svg";
-import FixedContainer from "./FixedContainer";
-import Icon from "./Icon";
+import FixedContainer from "./Common/FixedContainer";
+import Icon from "./Common/Icon";
 
 function Header() {
 	const navigate = useNavigate();

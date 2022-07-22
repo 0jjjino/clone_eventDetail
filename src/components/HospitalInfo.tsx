@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
 import { useQuery } from "react-query";
-import FreeSpace from "./FreeSpace";
+
+import FreeSpace from "./Common/FreeSpace";
 
 function HospitalInfo() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");

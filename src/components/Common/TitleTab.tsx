@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-import rightArrow from "../image/rightArrow.svg";
+import rightArrow from "../../image/rightArrow.svg";
 import Icon from "./Icon";
 
 interface propTypes {

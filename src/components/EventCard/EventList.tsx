@@ -2,9 +2,10 @@ import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
 import { useQuery } from "react-query";
+
+import FreeSpace from "../Common/FreeSpace";
+import TitleTab from "../Common/TitleTab";
 import EventCard from "./EventCard";
-import FreeSpace from "./FreeSpace";
-import TitleTab from "./TitleTab";
 
 function EventList() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");

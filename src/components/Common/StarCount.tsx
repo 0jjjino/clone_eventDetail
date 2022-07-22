@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 
-import star from "../image/star.svg";
-import greyStar from "../image/greyStar.svg";
-import Icon from "./Icon";
+import star from "../../image/star.svg";
+import greyStar from "../../image/greyStar.svg";
 import FreeSpace from "./FreeSpace";
+import Icon from "./Icon";
 
 interface propsTypes {
 	average: string;

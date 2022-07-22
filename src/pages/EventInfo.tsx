@@ -8,10 +8,10 @@ import getEventInfo from "api/getEventInfo";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import Thumbnail from "components/Thumbnail";
-import Review from "components/Review";
+import Review from "components/ReviewCard/Review";
 import Information from "components/Information";
-import Question from "components/Question";
-import EventList from "components/EventList";
+import Question from "components/QuestionCard/Question";
+import EventList from "components/EventCard/EventList";
 import HospitalInfo from "components/HospitalInfo";
 
 function EventInfo() {

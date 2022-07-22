@@ -6,10 +6,10 @@ import { useQuery } from "react-query";
 import open from "../image/open.svg";
 import close from "../image/close.svg";
 
-import FreeSpace from "./FreeSpace";
-import Icon from "./Icon";
-import TitleTab from "./TitleTab";
-import BigButton from "./BigButton";
+import FreeSpace from "./Common/FreeSpace";
+import Icon from "./Common/Icon";
+import TitleTab from "./Common/TitleTab";
+import BigButton from "./Common/BigButton";
 
 function Information() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");
@@ -49,9 +49,10 @@ function Information() {
 					<div>예약 : {tel}</div>
 					<FreeSpace height={20} />
 					<div>[ 진료시간 ]</div>
-					{hour.split("\r\n").map((value: string) => (
+					<div>{hour.replaceAll("\r\n", "\n")}</div>
+					{/* {hour.split("\r\n").map((value: string) => (
 						<div key={value}>{value}</div>
-					))}
+					))} */}
 					<FreeSpace height={20} />
 					<div>- 전화 예약 후 방문하시면 됩니다.</div>
 					<div>- 예약 번호는 결제 시 문자메시지로 발송됩니다.</div>

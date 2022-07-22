@@ -6,9 +6,9 @@ import { useQuery } from "react-query";
 import heart from "../image/heart.svg";
 import filledHeart from "../image/filledHeart.svg";
 import gift from "../image/gift.svg";
-import Icon from "./Icon";
-import FixedContainer from "./FixedContainer";
-import FreeSpace from "./FreeSpace";
+import FixedContainer from "./Common/FixedContainer";
+import FreeSpace from "./Common/FreeSpace";
+import Icon from "./Common/Icon";
 
 function Footer() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");

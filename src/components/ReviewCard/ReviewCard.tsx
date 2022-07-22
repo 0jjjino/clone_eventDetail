@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
 
-import FreeSpace from "./FreeSpace";
-import StarCount from "./StarCount";
+import FreeSpace from "../Common/FreeSpace";
+import StarCount from "../Common/StarCount";
 
 interface propsType {
 	data: AxiosResponse["data"];

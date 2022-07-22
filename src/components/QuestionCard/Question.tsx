@@ -1,14 +1,14 @@
+import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
 import { useQuery } from "react-query";
-import BigButton from "./BigButton";
-import Icon from "./Icon";
 
-import rightArrow from "../image/rightArrow.svg";
+import rightArrow from "../../image/rightArrow.svg";
+import BigButton from "../Common/BigButton";
+import Icon from "../Common/Icon";
+import TitleTab from "../Common/TitleTab";
+import FreeSpace from "../Common/FreeSpace";
 import QuestionCard from "./QuestionCard";
-import TitleTab from "./TitleTab";
-import styled from "@emotion/styled";
-import FreeSpace from "./FreeSpace";
 
 function Question() {
 	const { data }: AxiosResponse["data"] = useQuery("eventDetail");

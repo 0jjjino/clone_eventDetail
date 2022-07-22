@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
 
-import eventStar from "../image/eventStar.svg";
-import FreeSpace from "./FreeSpace";
-import Icon from "./Icon";
+import eventStar from "../../image/eventStar.svg";
+import FreeSpace from "../Common/FreeSpace";
+import Icon from "../Common/Icon";
 
 interface propTypes {
 	data: AxiosResponse["data"];
