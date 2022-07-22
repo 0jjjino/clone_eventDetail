@@ -12,15 +12,14 @@ import Review from "components/Review";
 import Information from "components/Information";
 import Question from "components/Question";
 import EventList from "components/EventList";
+import HospitalInfo from "components/HospitalInfo";
 
 function EventInfo() {
 	const { id } = useParams();
-	const { isSuccess, data }: AxiosResponse["data"] = useQuery(
+	const { isSuccess }: AxiosResponse["data"] = useQuery(
 		"eventDetail",
 		getEventInfo(id)
 	);
-
-	if (isSuccess) console.log(data.data.results);
 
 	return (
 		<>
@@ -37,6 +36,7 @@ function EventInfo() {
 						<Question />
 						<Space />
 						<EventList />
+						<HospitalInfo />
 					</Wrapper>
 					<Footer />
 				</>
