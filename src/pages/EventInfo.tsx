@@ -11,6 +11,7 @@ import Thumbnail from "components/Thumbnail";
 import Review from "components/Review";
 import Information from "components/Information";
 import Question from "components/Question";
+import EventList from "components/EventList";
 
 function EventInfo() {
 	const { id } = useParams();
@@ -35,6 +36,7 @@ function EventInfo() {
 						<Space />
 						<Question />
 						<Space />
+						<EventList />
 					</Wrapper>
 					<Footer />
 				</>
