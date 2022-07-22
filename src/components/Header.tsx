@@ -16,8 +16,8 @@ function Header() {
 
 	return (
 		<FixedContainer height={56}>
-			<InnerContainer>
-				<Container>
+			<OuterContainer>
+				<InnerContainer>
 					<Icon
 						width={24}
 						height={24}
@@ -25,16 +25,16 @@ function Header() {
 						onIconClick={handleBackClick}
 					/>
 					<Title>이벤트</Title>
-				</Container>
+				</InnerContainer>
 				<Icon width={24} height={24} src={basket} />
-			</InnerContainer>
+			</OuterContainer>
 		</FixedContainer>
 	);
 }
 
 export default Header;
 
-const InnerContainer = styled.div`
+const OuterContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -42,7 +42,7 @@ const InnerContainer = styled.div`
 	padding: 14px 16px 14px 24px;
 `;
 
-const Container = styled.div`
+const InnerContainer = styled.div`
 	display: flex;
 	justify-content: space-around;
 `;
@@ -50,8 +50,8 @@ const Container = styled.div`
 const Title = styled.div`
 	height: 28px;
 	margin-left: 40px;
-	font-weight: 400;
 	font-size: 19px;
+	font-weight: 400;
 	font-family: "Open Sans", sans-serif;
 	line-height: 28px;
 `;

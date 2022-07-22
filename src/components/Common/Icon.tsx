@@ -10,18 +10,13 @@ interface propsType {
 
 function Icon({ src, width, height, onIconClick }: propsType) {
 	return (
-		<IconContainer
-			width={width}
-			height={height}
-			src={src}
-			onClick={onIconClick}
-		/>
+		<Container width={width} height={height} src={src} onClick={onIconClick} />
 	);
 }
 
 export default Icon;
 
-const IconContainer = styled.img<propsType>`
+const Container = styled.img<propsType>`
 	width: ${props => props.width}px;
 	height: ${props => props.height}px;
 `;

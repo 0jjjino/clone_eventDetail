@@ -104,16 +104,17 @@ const MiniTitle = styled.div`
 	padding: 6px 0 6px 8px;
 	background-color: #f7f7f7;
 	font-size: 13px;
-	font-family: "Noto Sans KR", sans-serif;
 	font-weight: 700;
+	font-family: "Noto Sans KR", sans-serif;
 	line-height: 13px;
 `;
 
 const Explain = styled.div`
 	font-size: 13px;
-	font-family: "Open Sans", sans-serif;
 	font-weight: 400;
+	font-family: "Open Sans", sans-serif;
 	line-height: 20px;
+	white-space: pre-line;
 
 	&.usage {
 		padding: 12px 0px 24px 8px;
@@ -153,26 +154,3 @@ const MoreContainer = styled.div`
 		);
 	}
 `;
-
-// const Button = styled.div`
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	position: absolute;
-// 	z-index: 10;
-// 	bottom: 41px;
-// 	width: calc(100% - 32px);
-// 	height: 48px;
-// 	border: 1px solid #e6e6e6;
-// 	border-radius: 4px;
-// 	background-color: white;
-// `;
-
-// const Ment = styled.div`
-// 	display: flex;
-// 	height: 22px;
-// 	font-size: 15px;
-// 	font-family: "Noto Sans KR", sans-serif;
-// 	font-weight: 500;
-// 	line-height: 22px;
-// `;

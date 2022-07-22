@@ -18,12 +18,12 @@ function EventCard({ data }: propTypes) {
 			<ImgContainer>
 				<Img src={src} />
 				{reviewCount ? (
-					<StarContainer>
+					<Average>
 						<Icon width={20} height={20} src={eventStar} />
 						<Letter className="star">
 							{((rateScore / reviewCount) * 2).toFixed(1)}
 						</Letter>
-					</StarContainer>
+					</Average>
 				) : (
 					<></>
 				)}
@@ -51,7 +51,7 @@ const ImgContainer = styled.div`
 	position: relative;
 `;
 
-const StarContainer = styled.div`
+const Average = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -63,9 +63,6 @@ const StarContainer = styled.div`
 	border-radius: 0px 4px;
 	background-color: #3d3d3d;
 	opacity: 0.85;
-	text-align: center;
-	vertical-align: middle;
-	z-index: 5;
 `;
 
 const Img = styled.img`
@@ -81,34 +78,32 @@ const Letter = styled.div`
 	font-weight: 400;
 
 	&.name {
+		min-height: 40px;
 		color: rgb(168, 168, 168);
 		text-overflow: ellipsis;
 		overflow: hidden;
 		word-break: break-word;
-		min-height: 40px;
 	}
 
 	&.price {
-		white-space: pre-line;
 		font-weight: 700;
+		white-space: pre-line;
 	}
 
 	&.won {
-		white-space: pre-line;
 		font-family: "Noto Sans KR", sans-serif;
+		white-space: pre-line;
 	}
 
 	&.star {
 		display: flex;
-		justify-content: flex-end;
-		-webkit-box-align: center;
-		align-items: center;
-		bottom: 0px;
 		flex-wrap: wrap;
-		line-height: 16px;
+		align-items: center;
+		justify-content: flex-end;
 		color: rgb(255, 255, 255);
 		font-weight: 700;
 		font-family: "Noto Sans KR", sans-serif;
+		line-height: 16px;
 	}
 `;
 

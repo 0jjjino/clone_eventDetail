@@ -3,10 +3,10 @@ import { AxiosResponse } from "axios";
 import React from "react";
 import { useQuery } from "react-query";
 
+import nextButton from "../../image/next_button.png";
 import Icon from "../Common/Icon";
 import FreeSpace from "../Common/FreeSpace";
 import TitleTab from "../Common/TitleTab";
-import nextButton from "../../image/next_button.png";
 import ReviewCard from "./ReviewCard";
 
 function Review() {
@@ -17,18 +17,18 @@ function Review() {
 		<>
 			<TitleTab title="시술후기" count={totalCount} />
 			{reviews.length ? (
-				<ReviewContainer>
-					<ReviewInnerContainer>
+				<OuterContainer>
+					<InnerContainer>
 						{reviews.map((data: AxiosResponse["data"]) => (
 							<ReviewCard key={data.ttNo} data={data} />
 						))}
-						<NextContainer>
+						<MoreContainer>
 							<Icon width={48} height={48} src={nextButton} />
 							<FreeSpace height={4} />
 							<More>더보기</More>
-						</NextContainer>
-					</ReviewInnerContainer>
-				</ReviewContainer>
+						</MoreContainer>
+					</InnerContainer>
+				</OuterContainer>
 			) : (
 				<></>
 			)}
@@ -45,20 +45,20 @@ const More = styled.div`
 	line-height: 16px;
 `;
 
-const ReviewContainer = styled.div`
+const OuterContainer = styled.div`
 	box-sizing: border-box;
 	width: 100%;
 	height: 182px;
 	padding: 16px 0 29px;
 `;
 
-const ReviewInnerContainer = styled.div`
+const InnerContainer = styled.div`
 	display: flex;
 	overflow-x: scroll;
 	margin: 0px 0px 0px 16px;
 `;
 
-const NextContainer = styled.div`
+const MoreContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -31,7 +31,18 @@ function ReviewCard({ data }: propsType) {
 			</Container>
 			<FreeSpace height={8} />
 			<Container>
-				{imgList.length ? <Img src={imgList[0]} /> : <></>}
+				{imgList.length ? (
+					<ImgContainer>
+						<Img src={imgList[0]} />
+						{imgList.length > 1 ? (
+							<RemainImg>+{imgList.length}</RemainImg>
+						) : (
+							<></>
+						)}
+					</ImgContainer>
+				) : (
+					<></>
+				)}
 				<InnerContainer>
 					<OptionContainer>
 						<GrayFont className="option">옵션</GrayFont>
@@ -61,9 +72,9 @@ const Card = styled.div`
 	box-sizing: border-box;
 	padding: 12px 16px;
 	margin-right: 8px;
-	background-color: #ffffff;
 	border: 1px solid #e6e6e6;
 	border-radius: 4px;
+	background-color: #ffffff;
 `;
 
 const Container = styled.div`
@@ -88,16 +99,22 @@ const GrayFont = styled.div`
 	}
 
 	&.option {
-		font-family: "Noto Sans KR", sans-serif;
 		min-width: 21px;
+		font-family: "Noto Sans KR", sans-serif;
 	}
+`;
+
+const ImgContainer = styled.div`
+	position: relative;
+	width: 64px;
+	height: 64px;
+	margin: 0px 8px 0px 0px;
 `;
 
 const Img = styled.img`
 	width: 64px;
 	height: 64px;
 	border-radius: 4px;
-	margin: 0px 8px 0px 0px;
 	object-fit: cover;
 `;
 
@@ -110,14 +127,11 @@ const Option = styled.div`
 	font-size: 11px;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 400;
+	white-space: pre-line;
 	line-height: 16px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	word-break: break-word;
-	-webkit-box-orient: vertical;
-	display: -webkit-box;
-	white-space: pre-line;
-	-webkit-line-clamp: 1;
 `;
 
 const InnerContainer = styled.div`
@@ -126,14 +140,14 @@ const InnerContainer = styled.div`
 `;
 
 const Comment = styled.div`
+	display: inline;
 	width: 168px;
 	height: 40px;
-	white-space: pre-line;
 	font-size: 13px;
 	font-family: "Noto Sans KR", sans-serif;
 	font-weight: 400;
+	white-space: pre-line;
 	line-height: 20px;
-	display: inline;
 	text-overflow: ellipsis;
 	overflow: hidden;
 
@@ -143,17 +157,18 @@ const Comment = styled.div`
 	}
 `;
 
-// 첨부 파일의 갯수가 많을 경우
-// const RemainNum = styled.div`
-// 	position: absolute;
-// 	width: 30px;
-// 	height: 28px;
-// 	background: rgba(61, 61, 61, 0.85);
-// 	border-radius: 4px 0px;
-// 	font-size: 13px;
-// 	font-family: "Noto Sans KR", sans-serif;
-// 	font-weight: 700;
-// 	color: rgb(255, 255, 255);
-// 	text-align: center;
-// 	line-height: 28px;
-// `;
+const RemainImg = styled.div`
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 30px;
+	height: 28px;
+	border-radius: 4px 0px;
+	background: rgba(61, 61, 61, 0.85);
+	color: rgb(255, 255, 255);
+	font-size: 13px;
+	font-family: "Noto Sans KR", sans-serif;
+	font-weight: 700;
+	text-align: center;
+	line-height: 28px;
+`;

@@ -48,9 +48,7 @@ function Footer() {
 							onIconClick={handleHeartClick}
 						/>
 					)}
-					<Title className={isHeartClick ? "like" : "disLike"}>
-						{wishCount}
-					</Title>
+					<Title className={isHeartClick ? "like" : ""}>{wishCount}</Title>
 				</IconContainer>
 				<FreeSpace width={16} height={80} />
 				<IconContainer>
@@ -92,6 +90,7 @@ const Title = styled.div`
 	height: 20px;
 	font-size: 13px;
 	font-weight: 400;
+	font-family: "Open Sans", sans-serif;
 	line-height: 20px;
 
 	&.gift {
@@ -101,11 +100,6 @@ const Title = styled.div`
 	&.like {
 		color: #ef4b81;
 		font-weight: 700;
-		font-family: "Open Sans", sans-serif;
-	}
-
-	&.dislike {
-		font-family: "Open Sans", sans-serif;
 	}
 `;
 

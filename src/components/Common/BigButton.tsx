@@ -15,7 +15,7 @@ function BigButton({ onButtonClick, ment, children }: propTypes) {
 			className={ment === "시술문의 더보기" ? "" : "absolute"}
 			onClick={onButtonClick}
 		>
-			<Ment>{ment}</Ment>
+			<Name>{ment}</Name>
 			<FreeSpace width={10} />
 			{children}
 		</Button>
@@ -41,7 +41,7 @@ const Button = styled.div`
 	}
 `;
 
-const Ment = styled.div`
+const Name = styled.div`
 	display: flex;
 	height: 22px;
 	font-size: 15px;

@@ -38,19 +38,19 @@ function Thumbnail() {
 					<HospitalImg src={hospitalImg} />
 					<FreeSpace width={12} height={44} />
 					<Detail>
-						<Name>{hospital}</Name>
-						<Location>{location}</Location>
+						<Letter className="name">{hospital}</Letter>
+						<Letter className="location">{location}</Letter>
 					</Detail>
 				</HospitalContainer>
-				<FreeSpace height={12} />
-				<Title>{title}</Title>
-				<FreeSpace height={4} />
-				<Comment>{comment}</Comment>
-				<FreeSpace height={4} />
+				<FreeSpace height={20} />
+				<Letter className="title">{title}</Letter>
+				<FreeSpace height={8} />
+				<Letter className="comment">{comment}</Letter>
+				<FreeSpace height={8} />
 				<ScoreContainer>
 					<StarCount average={average} />
 					{mobileReservation === "Y" ? (
-						<Reservation>모바일예약</Reservation>
+						<Letter className="reservation">모바일예약</Letter>
 					) : (
 						<></>
 					)}
@@ -58,10 +58,10 @@ function Thumbnail() {
 				<FreeSpace height={8.5} />
 				<PriceContainer>
 					<Container>
-						<Price>{price}</Price>
-						<Won>원</Won>
+						<Letter className="price">{price}</Letter>
+						<Letter className="won">원</Letter>
 						<FreeSpace width={4} />
-						<Vat>(VAT 포함)</Vat>
+						<Letter className="vat">(VAT 포함)</Letter>
 					</Container>
 					<Container>
 						<Icon width={24} height={24} src={phone} />
@@ -103,7 +103,6 @@ const FloatInfo = styled.div`
 	font-size: 11px;
 	font-weight: 700;
 	line-height: 28px;
-	z-index: 0;
 `;
 
 const HospitalContainer = styled.div`
@@ -125,37 +124,6 @@ const Detail = styled.div`
 	flex-direction: column;
 `;
 
-const Name = styled.div`
-	font-weight: 700;
-	font-size: 13px;
-	font-family: "Noto Sans KR", sans-serif;
-	line-height: 20px;
-`;
-
-const Location = styled.div`
-	color: #a8a8a8;
-	font-weight: 400;
-	font-size: 13px;
-	font-family: "Noto Sans KR", sans-serif;
-	line-height: 16px;
-`;
-
-const Title = styled.div`
-	font-size: 15px;
-	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 500;
-	line-height: 22px;
-`;
-
-const Comment = styled.div`
-	color: #a8a8a8;
-	font-size: 13px;
-	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 400;
-	line-height: 20px;
-	white-space: normal;
-`;
-
 const ScoreContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -167,36 +135,58 @@ const Container = styled.div`
 	align-items: center;
 `;
 
-const Reservation = styled.div`
-	color: rgb(239, 75, 129);
-	font-size: 13px;
-	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 700;
-	line-height: 20px;
-`;
-
 const PriceContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 `;
 
-const Price = styled.div`
-	font-size: 21px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-	line-height: 31px;
-`;
-
-const Won = styled.div`
-	font-size: 16px;
-	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 500;
-	line-height: 25px;
-`;
-
-const Vat = styled.div`
-	font-size: 11px;
-	font-family: "Open Sans", sans-serif;
+const Letter = styled.div`
+	font-size: 13px;
 	font-weight: 400;
-	line-height: 16px;
+	font-family: "Noto Sans KR", sans-serif;
+
+	&.price {
+		font-size: 21px;
+		font-weight: 700;
+		font-family: "Open Sans", sans-serif;
+		line-height: 31px;
+	}
+
+	&.won {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 25px;
+	}
+
+	&.vat {
+		font-size: 11px;
+		font-family: "Open Sans", sans-serif;
+		line-height: 16px;
+	}
+
+	&.name {
+		font-weight: 700;
+	}
+
+	&.location {
+		font-size: 11px;
+		color: #a8a8a8;
+		line-height: 16px;
+	}
+
+	&.title {
+		font-size: 15px;
+		font-weight: 500;
+		line-height: 22px;
+	}
+
+	&.comment {
+		color: rgb(168, 168, 168);
+		white-space: normal;
+	}
+
+	&.reservation {
+		color: rgb(239, 75, 129);
+		font-weight: 700;
+	}
 `;

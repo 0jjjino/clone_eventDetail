@@ -15,7 +15,7 @@ function QuestionCard({ data }: propTypes) {
 	const { nickname, inputDate, content, replyList } = data;
 
 	return (
-		<Container>
+		<Card>
 			<Qmark>
 				<Icon width={20} height={20} src={qna} />
 			</Qmark>
@@ -25,11 +25,7 @@ function QuestionCard({ data }: propTypes) {
 				<FreeSpace height={2} />
 				<Date>{inputDate.replaceAll("-", ".")}</Date>
 				<FreeSpace height={8} />
-				{content.split("\n").map((value: string) => (
-					<Content key={value} className="content">
-						{value}
-					</Content>
-				))}
+				<Content className="content">{content}</Content>
 				<FreeSpace height={16} />
 				{replyList.length > 0 ? (
 					replyList.map((reply: AxiosResponse["data"]) => (
@@ -50,13 +46,13 @@ function QuestionCard({ data }: propTypes) {
 					<></>
 				)}
 			</ContentContainer>
-		</Container>
+		</Card>
 	);
 }
 
 export default QuestionCard;
 
-const Container = styled.div`
+const Card = styled.div`
 	display: flex;
 	box-sizing: border-box;
 	padding: 16px 16px 12px 16px;
@@ -86,6 +82,7 @@ const Content = styled.div`
 	&.name {
 		font-family: "Noto Sans KR", sans-serif;
 		font-weight: 700;
+		white-space: pre-line;
 	}
 
 	&.content {

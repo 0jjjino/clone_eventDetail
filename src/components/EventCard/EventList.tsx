@@ -15,13 +15,11 @@ function EventList() {
 		<>
 			<TitleTab title="진행중인 이벤트" />
 			<FreeSpace height={16} />
-			<OuterContainer>
-				<InnerContainer>
-					{products.map((product: AxiosResponse["data"]) => (
-						<EventCard key={product.productCode} data={product} />
-					))}
-				</InnerContainer>
-			</OuterContainer>
+			<Container>
+				{products.map((product: AxiosResponse["data"]) => (
+					<EventCard key={product.productCode} data={product} />
+				))}
+			</Container>
 			<FreeSpace height={20} />
 		</>
 	);
@@ -29,11 +27,7 @@ function EventList() {
 
 export default EventList;
 
-const OuterContainer = styled.div`
-	display: flex;
-`;
-
-const InnerContainer = styled.div`
+const Container = styled.div`
 	display: flex;
 	overflow-x: scroll;
 	margin-left: 16px;

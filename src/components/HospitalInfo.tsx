@@ -36,11 +36,11 @@ const Container = styled.div`
 `;
 
 const Info = styled.div`
-	font-family: "Noto Sans KR", sans-serif;
-	font-weight: 400;
-	font-size: 11px;
-	line-height: 16px;
 	color: #a8a8a8;
+	font-size: 11px;
+	font-weight: 400;
+	font-family: "Noto Sans KR", sans-serif;
+	line-height: 16px;
 
 	&.copyright {
 		font-size: 13px;

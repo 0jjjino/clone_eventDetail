@@ -11,18 +11,18 @@ interface propTypes {
 
 function TitleTab({ title, count }: propTypes) {
 	return (
-		<TitleContainer>
+		<Container>
 			<Title>
 				{title} {count ? count : ""}
 			</Title>
 			{count ? <Icon width={13} height={21.27} src={rightArrow} /> : <></>}
-		</TitleContainer>
+		</Container>
 	);
 }
 
 export default TitleTab;
 
-const TitleContainer = styled.div`
+const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
