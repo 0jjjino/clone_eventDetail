@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
 import React from "react";
-import { useState } from "react";
 import { useQuery } from "react-query";
 
 import share from "../image/share.svg";
@@ -25,10 +24,6 @@ function Thumbnail() {
 		price,
 	} = data.data.results.product;
 
-	const [average, setAverage] = useState(
-		((rateScore / reviewCount) * 2).toFixed(1)
-	);
-
 	return (
 		<>
 			<FloatInfo>이 페이지는 {hospital}에서 운영중입니다.</FloatInfo>
@@ -48,7 +43,7 @@ function Thumbnail() {
 				<Letter className="comment">{comment}</Letter>
 				<FreeSpace height={8} />
 				<ScoreContainer>
-					<StarCount average={average} />
+					<StarCount average={((rateScore / reviewCount) * 2).toFixed(1)} />
 					{mobileReservation === "Y" ? (
 						<Letter className="reservation">모바일예약</Letter>
 					) : (

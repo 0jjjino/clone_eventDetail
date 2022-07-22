@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { AxiosResponse } from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 
@@ -16,14 +16,18 @@ import HospitalInfo from "components/HospitalInfo";
 
 function EventInfo() {
 	const { id } = useParams();
-	const { isSuccess }: AxiosResponse["data"] = useQuery(
+	const { isLoading, isRefetching, refetch }: AxiosResponse["data"] = useQuery(
 		"eventDetail",
 		getEventInfo(id)
 	);
 
+	useEffect(() => {
+		refetch();
+	}, []);
+
 	return (
 		<>
-			{isSuccess ? (
+			{!isLoading && !isRefetching ? (
 				<>
 					<Header />
 					<Wrapper>
@@ -41,7 +45,7 @@ function EventInfo() {
 					<Footer />
 				</>
 			) : (
-				<div>Loading...</div>
+				<Loading>Loading...</Loading>
 			)}
 		</>
 	);
@@ -56,8 +60,18 @@ const Wrapper = styled.div`
 
 const Space = styled.div`
 	width: 100%;
-	background: #f7f7f7;
-	border-top: 1px solid #e6e6e6;
 	height: 12px;
+	border-top: 1px solid #e6e6e6;
 	box-sizing: border-box;
+	background: #f7f7f7;
+`;
+
+const Loading = styled.div`
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding-top: 50px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 700;
 `;
